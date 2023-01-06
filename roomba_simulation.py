@@ -6,17 +6,15 @@ import random
 import ps2_visualize
 import pylab
 
-##################
-## Comment/uncomment the relevant lines, depending on which version of Python you have
-##################
+# Edit the number in the line below based on which version of Python you have
+# eg. for Python 3.5, the number should be 35
+# for Python 3.6, the number should be 36
+# for Python 3.9, the number should be 39 etc.
+# This program will only work with Python versions 3.5 - 3.10
 
-# For Python 3.5:
-#from ps2_verify_movement35 import testRobotMovement
-# If you get a "Bad magic number" ImportError, you are not using Python 3.5 
-
-# For Python 3.6:
-from ps2_verify_movement36 import testRobotMovement
-# If you get a "Bad magic number" ImportError, you are not using Python 3.6
+from verify_movement39 import testRobotMovement
+# If you get a "Bad magic number" ImportError, you are not using the correct
+# version of Python
 
 
 # === Provided class Position
