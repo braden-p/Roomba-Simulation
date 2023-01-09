@@ -46,6 +46,9 @@ The program demonstrates two different methods of movement by the robot(s):
 
 Termination
 The simulation ends when a specified fraction of the tiles in the room have been cleaned.
+
+A few lines of code at the bottom of this program can be uncommented to run the
+program using whatever parameters you desire.
 ------------------------------------------
 NOTE: This program was completed as part of the course MITx 6.00.2x - Introduction
 to Computational Thinking and Data Science. The general framework, and some
@@ -61,7 +64,7 @@ implementations are my own.
 import math
 import random
 
-import visualize
+import ps2_visualize
 import pylab
 
 # Edit the number in the line below based on which version of Python you have
@@ -338,6 +341,9 @@ def runSimulation(num_robots, speed, width, height, min_coverage, num_trials,
     num_trials: an int (num_trials > 0)
     robot_type: class of robot to be instantiated (e.g. StandardRobot or
                 RandomWalkRobot)
+    
+    If you wish to watch a visualization of each simulation, uncomment the three
+    lines that contain anim
     """
     results = []
     robots = []
@@ -368,9 +374,6 @@ def runSimulation(num_robots, speed, width, height, min_coverage, num_trials,
     meanResults = sumResults /num_trials
     print('Mean of Results:',meanResults)
     return meanResults
-
-# Uncomment this line to see how much your simulation takes on average
-##print(runSimulation(1, 1.0, 10, 10, 0.75, 30, StandardRobot))
 
 
 # === Problem 5
@@ -450,5 +453,11 @@ def showPlot2(title, x_label, y_label):
 #
 
 
-# Uncomment this line to see StandardRobot in action!
+# Uncomment this line to see a visualization of StandardRobot cleaning a 5x5 room
 ##testRobotMovement(StandardRobot, RectangularRoom)
+
+# Uncomment this line to run the robot cleanign simulation and se ethe average
+# time a robot takes to clean the room. As a reminder
+# these are the paramaters of runSimulation:
+# (number of robots, width of room, height of room, minimum required cleaning coverage, number of trials, robot type)
+##print(runSimulation(2, 1.0, 10, 10, 0.75, 1, StandardRobot))
