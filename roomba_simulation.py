@@ -321,7 +321,6 @@ class StandardRobot(Robot):
            self.setRobotDirection(random.randrange(360))
 
 
-# === Problem 4
 def runSimulation(num_robots, speed, width, height, min_coverage, num_trials,
                   robot_type):
     """
@@ -340,7 +339,35 @@ def runSimulation(num_robots, speed, width, height, min_coverage, num_trials,
     robot_type: class of robot to be instantiated (e.g. StandardRobot or
                 RandomWalkRobot)
     """
-    raise NotImplementedError
+    results = []
+    robots = []
+    for trial in range(num_trials): # for each trial
+        print('Starting trial',trial+1)
+        #anim = ps2_visualize.RobotVisualization(num_robots, width, height)
+        numSteps = 0
+        robotCount = 0
+        room1 = RectangularRoom(width, height)
+        for num in range(num_robots):  # initialize the correct number of robots
+            robotCount += 1
+            #print('initializing robot',robotCount)
+            robots.append(robot_type(room1,speed))
+        cleanTileGoal = room1.getNumTiles() * min_coverage  # set clean tile goal
+        print('Cleaning',cleanTileGoal,'tiles')
+        while room1.getNumCleanedTiles() < cleanTileGoal:  # while clean tile goal is not met:
+            numSteps += 1
+            for robot in robots:   # for each robot in the list robots:
+                #anim.update(room1, robots)
+                robot.updatePositionAndClean()  # updatePositionAndClean
+        results.append(numSteps)
+        print('Trial',trial+1,'complete.')
+        print('Total number of steps:',numSteps)
+    #anim.done()
+    sumResults = sum(results)
+    print('Results:',results)
+    print('Sum of Results:',sumResults)
+    meanResults = sumResults /num_trials
+    print('Mean of Results:',meanResults)
+    return meanResults
 
 # Uncomment this line to see how much your simulation takes on average
 ##print(runSimulation(1, 1.0, 10, 10, 0.75, 30, StandardRobot))
