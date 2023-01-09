@@ -376,7 +376,6 @@ def runSimulation(num_robots, speed, width, height, min_coverage, num_trials,
     return meanResults
 
 
-# === Problem 5
 class RandomWalkRobot(Robot):
     """
     A RandomWalkRobot is a robot with the "random walk" movement strategy: it
@@ -427,7 +426,12 @@ def showPlot1(title, x_label, y_label):
     
 def showPlot2(title, x_label, y_label):
     """
-    What information does the plot produced by this function tell you?
+    Runs 1600 trials, 800 using StandardRobot, and 800 using RandomWalkRobot.
+    In each trial, two robots clean 80% of a room.
+    The trials are run in groups of 200. For each group of trials, a different
+    sized room is used.
+    After running all trials, plots the results with 'Aspect Ratio' on the
+    x-axis and 'Time-Steps' on the y-axis.
     """
     aspect_ratios = []
     times1 = []
@@ -447,20 +451,34 @@ def showPlot2(title, x_label, y_label):
     pylab.show()
     
 
-
+# STANDARD ROBOT SIMPLE VISUALIZATION
 # Uncomment this line to see a visualization of StandardRobot cleaning a 5x5 room
 ##testRobotMovement(StandardRobot, RectangularRoom)
 
+# RUN SIMULATION
 # Uncomment this line to run the robot cleaning simulation and see the average
-# time a robot takes to clean the room. As a reminder
-# these are the paramaters of runSimulation:
+# time a robot takes to clean the room.
+# NOTE: You will need to uncomment the lines beginning with 'anim' within the
+# runSimulation function if you wish to watch a visualization of the robots.
+#   - This is not advised for a large number of trials, as the simulation will
+#   take too long.
+# As a reminder these are the paramaters of runSimulation:
 # (number of robots, width of room, height of room, minimum required cleaning coverage, number of trials, robot type)
 ##print(runSimulation(1, 1.0, 10, 10, 0.75, 50, StandardRobot))
 
-#Uncomment this line to run the simulation with a RandomWalkRobot
+# RANDOM WALK ROBOT
+# Uncomment this line to run the simulation with a RandomWalkRobot
 # print(runSimulation(1, 1.0, 5, 5, 1.0, 50, RandomWalkRobot))
 
+# SHOW PLOT 1
+# Shows a plot detailing how much time it takes 1-10 Robots to clean 80% of a
+# room with 'Number of Robots' on the x-axis and 'Time Steps' on the y-axis.
 # Uncomment this line to run the showPlot1 function
 ##showPlot1('Time It Takes 1-10 Robots to clean 80% of a Room', 'Number of Robots', 'Time Steps')
 
-showPlot2('Time it takes two robots to clean 80% of variously shaped rooms', 'Aspect Ratio', 'Time-Steps')
+# SHOW PLOT 2
+# Shows a plot detailing how much time it takes two robots to clean 80% of
+# variously sized rooms with 'Aspect Ratio' on the x-axis and 'Time-Steps' on the
+# y-axis.
+# Uncomment this line to run the showPlot2 function
+##showPlot2('Time it takes two robots to clean 80% of variously shaped rooms', 'Aspect Ratio', 'Time-Steps')
