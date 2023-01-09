@@ -74,8 +74,6 @@ from verify_movement39 import testRobotMovement
 # If you get a "Bad magic number" ImportError, you are not using the correct
 # version of Python
 
-
-# === Provided class Position
 class Position(object):
     """
     A Position represents a location in a two-dimensional room.
@@ -119,8 +117,6 @@ class Position(object):
     def __str__(self):  
         return "(%0.2f, %0.2f)" % (self.x, self.y)
 
-
-# === Problem 1
 class RectangularRoom(object):
     """
     A RectangularRoom represents a rectangular region containing clean or dirty
@@ -138,8 +134,21 @@ class RectangularRoom(object):
         width: an integer > 0
         height: an integer > 0
         """
-        raise NotImplementedError
+        self.width = width
+        self.height = height
+        self.tiles = self.getNumTiles()
+        self.cleanTiles = []
+        self.numCleanTiles = self.getNumCleanedTiles()
+        
+    def getW(self):
+        return self.width
     
+    def getH(self):
+        return self.height
+        
+    def __str__(self):
+        return 'Rectangular Room: w:'+str(self.width)+' h:'+str(self.height)+' numTiles:'+str(self.tiles)+' cleanTiles:'+str(self.numCleanTiles)
+        
     def cleanTileAtPosition(self, pos):
         """
         Mark the tile under the position POS as cleaned.
@@ -148,7 +157,12 @@ class RectangularRoom(object):
 
         pos: a Position
         """
-        raise NotImplementedError
+        x = int(pos.getX())
+        y = int(pos.getY())
+        if self.isTileCleaned(x,y):
+            pass
+        else:
+            self.cleanTiles.append((x,y))
 
     def isTileCleaned(self, m, n):
         """
@@ -160,7 +174,10 @@ class RectangularRoom(object):
         n: an integer
         returns: True if (m, n) is cleaned, False otherwise
         """
-        raise NotImplementedError
+        if (m,n) in self.cleanTiles:
+            return True
+        else:
+            return False
     
     def getNumTiles(self):
         """
@@ -168,7 +185,10 @@ class RectangularRoom(object):
 
         returns: an integer
         """
-        raise NotImplementedError
+        width = self.width
+        height = self.height
+        numTiles = width*height
+        return numTiles
 
     def getNumCleanedTiles(self):
         """
@@ -176,7 +196,7 @@ class RectangularRoom(object):
 
         returns: an integer
         """
-        raise NotImplementedError
+        return len(self.cleanTiles)
 
     def getRandomPosition(self):
         """
@@ -184,7 +204,13 @@ class RectangularRoom(object):
 
         returns: a Position object.
         """
-        raise NotImplementedError
+        x = random.uniform(0,self.getW())    
+        y = random.uniform(0,self.getH()) 
+        while x == self.getW() or y == self.getH():
+            x = random.uniform(0,self.getW())    
+            y = random.uniform(0,self.getH()) 
+        randomPosition = Position(x,y)
+        return randomPosition
 
     def isPositionInRoom(self, pos):
         """
@@ -193,7 +219,12 @@ class RectangularRoom(object):
         pos: a Position object.
         returns: True if pos is in the room, False otherwise.
         """
-        raise NotImplementedError
+        x = pos.getX()
+        y = pos.getY()
+        if x >= 0 and x < self.getW() and y >= 0 and y < self.getH():
+            return True
+        else:
+            return False
 
 
 # === Problem 2
