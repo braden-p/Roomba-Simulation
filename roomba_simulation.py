@@ -297,7 +297,6 @@ class Robot(object):
         raise NotImplementedError # don't change this!
 
 
-# === Problem 3
 class StandardRobot(Robot):
     """
     A StandardRobot is a Robot with the standard movement strategy.
@@ -313,11 +312,13 @@ class StandardRobot(Robot):
         Move the robot to a new position and mark the tile it is on as having
         been cleaned.
         """
-        raise NotImplementedError
-
-
-# Uncomment this line to see your implementation of StandardRobot in action!
-##testRobotMovement(StandardRobot, RectangularRoom)
+        currentPosition = self.getRobotPosition()
+        newPosition = currentPosition.getNewPosition(self.getRobotDirection(),self.speed)
+        if self.room.isPositionInRoom(newPosition):
+           self.setRobotPosition(newPosition)
+           self.room.cleanTileAtPosition(newPosition)
+        else:
+           self.setRobotDirection(random.randrange(360))
 
 
 # === Problem 4
@@ -420,3 +421,7 @@ def showPlot2(title, x_label, y_label):
 #
 #       (... your call here ...)
 #
+
+
+# Uncomment this line to see StandardRobot in action!
+##testRobotMovement(StandardRobot, RectangularRoom)
