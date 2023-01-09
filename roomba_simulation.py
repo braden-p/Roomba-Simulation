@@ -463,8 +463,11 @@ def showPlot2(title, x_label, y_label):
 # Uncomment this line to see a visualization of StandardRobot cleaning a 5x5 room
 ##testRobotMovement(StandardRobot, RectangularRoom)
 
-# Uncomment this line to run the robot cleanign simulation and se ethe average
+# Uncomment this line to run the robot cleaning simulation and see the average
 # time a robot takes to clean the room. As a reminder
 # these are the paramaters of runSimulation:
 # (number of robots, width of room, height of room, minimum required cleaning coverage, number of trials, robot type)
-##print(runSimulation(2, 1.0, 10, 10, 0.75, 1, StandardRobot))
+##print(runSimulation(1, 1.0, 10, 10, 0.75, 50, StandardRobot))
+
+#Uncomment this line to run the simulation with a RandomWalkRobot
+# print(runSimulation(1, 1.0, 5, 5, 1.0, 50, RandomWalkRobot))
