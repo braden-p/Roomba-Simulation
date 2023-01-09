@@ -6,7 +6,8 @@ Version = 1.1
 ------------------------------------------
 DESCRIPTION:
 A program capable of simulating one or multiple roomba vacuum robots cleaning a
-rectangular room.
+rectangular room. This program can run and time multiple trials, and plot the
+results of the trials.
 
 This program uses Object Oriented Programming to simulate:
     • A Rectangular Room
