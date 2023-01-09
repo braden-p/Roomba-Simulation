@@ -401,7 +401,13 @@ class RandomWalkRobot(Robot):
 
 def showPlot1(title, x_label, y_label):
     """
-    What information does the plot produced by this function tell you?
+    Runs 400 trials, 200 using StandardRobot, and 200 using RandomWalkRobot.
+    In each trial, the robot(s) clean(s) 80% of a 20x20 room.
+    The trials are run in groups of twenty. Each group of twenty trials is run
+    ten times, the first group using only 1 robot, the second using 2 robots,
+    and so on, until the final group which uses 10 robots.
+    After running all trials, it plots the results of the trials, with time-steps
+    on the y-axis, and number of robots on the x-axis.
     """
     num_robot_range = range(1, 11)
     times1 = []
@@ -441,24 +447,6 @@ def showPlot2(title, x_label, y_label):
     pylab.show()
     
 
-# === Problem 6
-# NOTE: If you are running the simulation, you will have to close it 
-# before the plot will show up.
-
-#
-# 1) Write a function call to showPlot1 that generates an appropriately-labeled
-#     plot.
-#
-#       (... your call here ...)
-#
-
-#
-# 2) Write a function call to showPlot2 that generates an appropriately-labeled
-#     plot.
-#
-#       (... your call here ...)
-#
-
 
 # Uncomment this line to see a visualization of StandardRobot cleaning a 5x5 room
 ##testRobotMovement(StandardRobot, RectangularRoom)
@@ -471,3 +459,8 @@ def showPlot2(title, x_label, y_label):
 
 #Uncomment this line to run the simulation with a RandomWalkRobot
 # print(runSimulation(1, 1.0, 5, 5, 1.0, 50, RandomWalkRobot))
+
+# Uncomment this line to run the showPlot1 function
+##showPlot1('Time It Takes 1-10 Robots to clean 80% of a Room', 'Number of Robots', 'Time Steps')
+
+showPlot2('Time it takes two robots to clean 80% of variously shaped rooms', 'Aspect Ratio', 'Time-Steps')
