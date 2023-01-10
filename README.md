@@ -56,8 +56,9 @@ to Computational Thinking and Data Science. The general framework, and some
 of the functions were provided materials. The majority of the implementation is
 my own work.
 The provided materials include:
-    Position class
-    showPlot1 function
-    showPlot 2 function
+* `Position` class
+* `showPlot1` function
+* `showPlot 2` function
+
 The other class names and function names were provided with docstrings, but the
 implementations are my own.
