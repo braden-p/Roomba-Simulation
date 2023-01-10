@@ -4,6 +4,11 @@
 #### Version = 1.1
 ---
 ## DESCRIPTION
+A program capable of simulating one or more roomba vacuums cleaning tiles in a rectangular room
+
+A few lines of code at the bottom of this program can be uncommented to run the
+program using whatever parameters you desire.
+
 This program uses Object Oriented Programming to simulate:
 * A Rectangular Room
     - A room consisting of clean or dirty tiles
@@ -41,9 +46,6 @@ The program demonstrates two different methods of movement by the robot(s):
     chooses a new direction at random at the end of each time-step.
 
 The simulation ends when a specified fraction of the tiles in the room have been cleaned.
-
-A few lines of code at the bottom of this program can be uncommented to run the
-program using whatever parameters you desire.
 ---
 ##### NOTE:
 This program was completed as part of the course MITx 6.00.2x - Introduction
