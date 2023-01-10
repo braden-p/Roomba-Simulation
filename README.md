@@ -58,7 +58,7 @@ my own work.
 The provided materials include:
 * `Position` class
 * `showPlot1` function
-* `showPlot 2` function
+* `showPlot2` function
 
 The other class names and function names were provided with docstrings, but the
 implementations are my own.
