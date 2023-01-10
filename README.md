@@ -45,6 +45,11 @@ The program demonstrates two different methods of movement by the robot(s):
     - This robot uses the "random walk" movement strategy: it
     chooses a new direction at random at the end of each time-step.
 ---
+## INSTRUCTIONS
+* Open roomba_simulation.py
+* Scroll to the bottom, and uncomment specific lines of code depending on what you want to do
+
+---
 ##### NOTE:
 This program was completed as part of the course MITx 6.00.2x - Introduction
 to Computational Thinking and Data Science. The general framework, and some
