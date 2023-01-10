@@ -45,6 +45,7 @@ The program demonstrates two different methods of movement by the robot(s):
     - This robot uses the "random walk" movement strategy: it
     chooses a new direction at random at the end of each time-step.
 
+
 The simulation ends when a specified fraction of the tiles in the room have been cleaned.
 ---
 ##### NOTE:
